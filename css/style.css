@@ -1,0 +1,259 @@
+html {
+    scroll-behavior: smooth;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+    transition: 0.2s;
+}
+
+img {
+    width: 100%;
+}
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: Roboto, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    /* background-color: rgb(0, 0, 0); */
+    background: linear-gradient(
+        to right,
+        #d16ba5,
+        #c777b9,
+        #ba83ca,
+        #aa8fd8,
+        #9a9ae1,
+        #8aa7ec,
+        #79b3f4,
+        #69bff8,
+        #52cffe,
+        #41dfff,
+        #46eefa,
+        #5ffbf1
+    );
+}
+
+:root {
+    --primary-color: rgb(196, 9, 9);
+    --text-color: rgb(0, 0, 0);
+    --font1: 'Boogaloo', serif;
+    --font2: 'Reenie Beanie';
+}
+
+.app {
+    max-width: 480px;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+h4 {
+    padding: 10px 0 0 0;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+h2 {
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.img-header {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    margin: 0 auto;
+    width: 200px;
+}
+
+.cd {
+    width: 100%;
+    padding: 50%;
+    border-radius: 50%;
+    background-size: cover;
+    animation: rotate linear 15s infinite;
+    animation-play-state: paused;
+}
+
+.dashboard {
+    text-align: center;
+    background-color: white;
+}
+
+.btn-wrap {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.btn-control {
+    padding: 10px 6%;
+    cursor: pointer;
+}
+
+.btn-repeat.active {
+    color: var(--primary-color);
+}
+
+.btn-shuffle.active {
+    color: var(--primary-color);
+}
+
+.ti-control-play {
+    display: none;
+}
+
+.btn-play-pause.playing .ti-control-pause {
+    display: none;
+}
+
+.btn-play-pause.playing .ti-control-play {
+    display: inline;
+}
+
+.songs-list::-webkit-scrollbar {
+    display: none;
+}
+
+input {
+    width: 94%;
+    opacity: 0.6;
+    -webkit-appearance: none;
+    height: 4px;
+    background: linear-gradient(
+        to right,
+        #d16ba5,
+        #c777b9,
+        #ba83ca,
+        #aa8fd8,
+        #9a9ae1,
+        #8aa7ec,
+        #79b3f4,
+        #69bff8,
+        #52cffe,
+        #41dfff,
+        #46eefa,
+        #5ffbf1
+    );
+    margin: 20px 0;
+    border-radius: 5px;
+    outline: none;
+}
+
+input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(#2c3e50, black);
+}
+
+input:hover,
+input:focus {
+    opacity: 1;
+}
+
+.songs-list {
+    padding: 10px;
+    background-color: #fff;
+    height: 249px;
+    overflow-y: scroll;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    background-color: honeydew;
+    height: 50px;
+    cursor: pointer;
+    border: 3px 3px 20px gray;
+    border-radius: 5px;
+}
+
+.music-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+}
+
+li.active .wrap-text {
+    color: white;
+}
+
+.music-info img {
+    margin: 0 2%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.ti-line-double {
+    font-size: 2rem;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.wrap-text {
+    font-size: 1.4rem;
+    text-align: left;
+    color: var(--text-color);
+    flex: 1;
+}
+
+.music-author {
+    font-size: 1.1rem;
+    color: gray;
+}
+
+.active .music-author {
+    color: rgb(63, 63, 63);
+}
+
+li.active {
+    background: linear-gradient(
+        to right,
+        #d16ba5,
+        #c777b9,
+        #ba83ca,
+        #aa8fd8,
+        #9a9ae1,
+        #8aa7ec,
+        #79b3f4,
+        #69bff8,
+        #52cffe,
+        #41dfff,
+        #46eefa,
+        #5ffbf1
+    );
+}
+
+li:active {
+    background-color: red;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+button {
+    padding: 4px;
+    color: red;
+    background-color: aliceblue;
+    font-size: 15px;
+}

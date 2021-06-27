@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <style>
+        img {
+            height: 50px;
+            width: 50;
+            object-fit: contain;
+        }
+    </style>
+    <body>
+        <table style="width: 100%; text-align: center" border="1px solid">
+            <tr id="end">
+                <th>ID</th>
+                <th>Ten bai</th>
+                <th>Img</th>
+                <th>Delete</th>
+            </tr>
+        </table>
+        <a href="./index.html">Back to App</a>
+    </body>
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+
+        const ajax = new XMLHttpRequest();
+        ajax.open('post', 'https://phamtai-first-project.herokuapp.com/', false);
+        ajax.onload = function () {
+            let html = '';
+            let data = JSON.parse(this.responseText);
+            for (let index in data) {
+                html += `
+                <tr>
+                    <td>${index}</td>
+                    <td>${data[index]['name']}</td>
+                    <td><img src="${data[index]['img']}"></td>
+                    <td><button value="${index}">Xoa</button></td>
+                    </tr>
+                    `;
+            }
+            $('#end').insertAdjacentHTML('afterend', html);
+            const buttons = $$('button');
+            buttons.forEach((element) => {
+                element.onclick = function () {
+                    const ajax = new XMLHttpRequest();
+                    ajax.open('post', 'https://phamtai-first-project.herokuapp.com/', false);
+                    ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    ajax.send('music=delete&id=' + this.value);
+                    location.reload();
+                };
+            });
+        };
+        ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        ajax.send('music=deleteList');
+    </script>
+</html>
